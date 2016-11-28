@@ -8,6 +8,10 @@ class List extends Component {
 
   constructor(props) {
     super(props);
+
+    this.state = {
+      isComplete: null
+    }
   }
 
   render() {
@@ -15,7 +19,7 @@ class List extends Component {
 
     const listItems = list.map((listItem) =>
       <li key={listItem.id}>
-        <Complete />
+        <Complete isComplete={listItem.complete} id={listItem.id}/>
         <div>{listItem.task}</div>
         <div>{listItem.time} {listItem.date}</div>
       </li>
