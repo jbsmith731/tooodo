@@ -24,7 +24,7 @@ class App extends Component {
 
   render() {
     return (
-      <div onKeyUp={this._handleEnter.bind(this)}>
+      <div className="app" onKeyUp={this._handleEnter.bind(this)}>
         <Input />
         <List />
       </div>

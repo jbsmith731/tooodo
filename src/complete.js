@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {getItems, updateItems} from './util.js'
+import {updateItems} from './util.js';
+import './complete.css';
 
 class Complete extends Component {
 
@@ -14,14 +15,14 @@ class Complete extends Component {
   }
 
   _handleChange(e) {
-    this.setState({complete: e.target.checked})
+    this.setState({complete: e.target.checked});
     updateItems(this.props.id, e.target.checked);
   }
 
   render() {
     return (
-      <div>
-        <input type="checkbox" checked={this.state.complete} onChange={this._handleChange}/>
+      <div className="complete-container">
+        <input type="checkbox" checked={this.state.complete} onChange={this._handleChange} value={this.state.complete}/>
       </div>
     )
   }

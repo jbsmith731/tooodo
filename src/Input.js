@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import {getItems, addItems} from './util.js';
+import {addItems} from './util.js';
 // import logo from './logo.svg';
-// import './Input.css';
+import './input.css';
 
 class Input extends Component {
 
@@ -31,8 +31,8 @@ class Input extends Component {
 
   render() {
     return (
-      <div>
-        <input id="createTask" type="text" placeholder="add new task..." value={this.state.theValue} onChange={this._handleChange} onKeyDown={this._handleEnter} />
+      <div className="input-container">
+        <input id="createTask" type="text" placeholder="Add new task..." value={this.state.theValue} onChange={this._handleChange} onKeyDown={this._handleEnter} />
       </div>
     );
   }
