@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {updateItems} from './util.js';
+// import {updateItems} from './util.js';
 import './complete.css';
 
 class Complete extends Component {
@@ -11,12 +11,15 @@ class Complete extends Component {
       complete: this.props.isComplete
     }
 
-    this._handleChange = this._handleChange.bind(this);
+    this._handleChange = this._handleChange.bind(this)
   }
 
   _handleChange(e) {
-    this.setState({complete: e.target.checked});
-    updateItems(this.props.id, e.target.checked);
+    this.props.toggleComplete(this.props.id, e.target.checked);
+
+    this.setState({
+      complete: e.target.checked
+    })
   }
 
   render() {

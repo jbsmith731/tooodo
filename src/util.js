@@ -35,21 +35,13 @@ export function addItems(val) {
   localStorage.setItem( 'list', JSON.stringify(list) );
 }
 
-function search(nameKey, myArray){
-  for (var i=0; i < myArray.length; i++) {
-    if (myArray[i].id === nameKey) {
-      return myArray[i];
-    }
-  }
-}
 
 // Update items
-export function updateItems(id, toggle) {
+export function updateItems(index, toggle) {
   const list = getItems(),
-        item = search(id, list),
-        itemIndex = list.indexOf(item);
+        item = getItems()[index];
 
   item.complete = toggle;
-  list.splice(itemIndex, 1, item)
+  list.splice(index, 1, item)
   localStorage.setItem( 'list', JSON.stringify(list) );
 }
