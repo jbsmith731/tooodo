@@ -24,6 +24,7 @@ class List extends Component {
       return (comp === true ? 'completed task-item' : 'task-item');
     }
 
+
     const listItems = list.map((listItem, i) =>
       <li key={listItem.id}>
         <Complete isComplete={listItem.complete} id={i} toggleComplete={this._toggleComplete} />
@@ -34,10 +35,14 @@ class List extends Component {
       </li>
     );
 
+    const emptyList = <li>You have no tooodos. What would you like to accomplish today?</li>;
+
+    const listContent = (list.length > 0) ? listItems : emptyList;
+
     return (
       <div className="todo-list">
         <ul>
-          {listItems}
+          {listContent}
         </ul>
       </div>
     )
