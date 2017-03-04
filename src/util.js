@@ -5,6 +5,7 @@ export function getItems() {
   if (localStorage.getItem("list") === null) {
     const list = [];
     localStorage.setItem('list', JSON.stringify(list));
+    return list;
   } else {
     return JSON.parse(localStorage.getItem('list'))
   }
@@ -12,10 +13,10 @@ export function getItems() {
 
 // http://stackoverflow.com/a/6860916
 function idGenerator() {
-    const S4 = function() {
-       return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
-    };
-    return (S4()+S4());
+  const S4 = function() {
+     return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+  };
+  return (S4()+S4());
 }
 
 // Add new items
