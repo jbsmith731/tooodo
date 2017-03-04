@@ -1,3 +1,27 @@
-.complete-container {
+.complete-container input[type="checkbox"] {
+  position: relative;
+  height: 1rem;
+  width: 1rem;
+  -webkit-appearance: none;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.4);
+  outline: none;
+}
 
+.complete-container input[type="checkbox"]:checked::after {
+  border-color: #3F51B5;
+}
+
+.complete-container input[type="checkbox"]:checked::after {
+  content: "";
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #3F51B5;
+  border-radius: 50%;
+  margin: auto;
 }

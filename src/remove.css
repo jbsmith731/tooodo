@@ -3,17 +3,38 @@
 }
 
 .remove-container button {
+  position: relative;
   -webkit-appearance: none;
   border: none;
   background-color: transparent;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #e53935;
+  color: rgba(0,0,0,0.4);
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: color 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000);
   cursor: pointer;
+}
+
+.remove-container button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 6px;
+  right: 6px;
+  height: 1px;
+  background-color: rgba(0,0,0,0.4);
+  transform: scaleX(0);
+  transition: transform 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000), background-color 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000);
+  transform-origin: right;
 }
 
 .remove-container button:hover {
   color: #C62828;
+  transform: scaleX(1);
+}
+
+.remove-container button:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+  background-color: #e53935;
 }

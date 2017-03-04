@@ -21,10 +21,33 @@
   margin-bottom: 0.25rem;
 }
 
-.todo-list .task-item.completed {
-  text-decoration: line-through;
-  color: rgba(0,0,0,0.4);
+.task-item span {
+  position: relative;
+  transition: color 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000);
 }
+
+.task-item span::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.4);
+  height: 1px;
+  width: 100%;
+  margin: auto;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000);
+}
+
+.task-item.completed span::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.task-item.completed span { color: rgba(0,0,0,0.4); }
 
 .todo-list .created {
   width: 100%;

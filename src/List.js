@@ -32,7 +32,7 @@ class List extends Component {
       <li key={listItem.id}>
         <Complete isComplete={listItem.complete} id={i} toggleComplete={this._toggleComplete} />
         <div className="task">
-          <div className={completedClass(listItem.complete)}> {listItem.task}</div>
+          <div className={completedClass(listItem.complete)}><span>{listItem.task}</span></div>
           <div className="created"><span className="time">{listItem.time}</span> &ndash; <span className="date">{listItem.date}</span></div>
         </div>
         <Remove removeTodo={this._removeTodo} id={i}/>
