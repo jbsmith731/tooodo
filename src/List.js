@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-// import {getItems, updateItems} from './util.js';
 import Complete from './complete';
-// import logo from './logo.svg';
+import Remove from './remove';
 import './List.css';
 
 class List extends Component {
@@ -9,11 +8,16 @@ class List extends Component {
   constructor(props) {
     super(props);
 
-    this._toggleComplete = this._toggleComplete.bind(this)
+    this._toggleComplete = this._toggleComplete.bind(this);
+    this._removeTodo = this._removeTodo.bind(this);
   }
 
   _toggleComplete(id, checked) {
     this.props.updateChecked(id, checked)
+  }
+
+  _removeTodo(id) {
+    this.props.removeTodo(id);
   }
 
   render() {
@@ -31,6 +35,7 @@ class List extends Component {
           <div className={completedClass(listItem.complete)}> {listItem.task}</div>
           <div className="created"><span className="time">{listItem.time}</span> &ndash; <span className="date">{listItem.date}</span></div>
         </div>
+        <Remove removeTodo={this._removeTodo} id={i}/>
       </li>
     );
 

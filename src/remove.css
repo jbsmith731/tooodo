@@ -1,0 +1,19 @@
+.remove-container {
+  margin-left: auto;
+}
+
+.remove-container button {
+  -webkit-appearance: none;
+  border: none;
+  background-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #e53935;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.remove-container button:hover {
+  color: #C62828;
+}

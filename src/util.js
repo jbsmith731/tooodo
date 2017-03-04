@@ -46,3 +46,11 @@ export function updateItems(index, toggle) {
   list.splice(index, 1, item)
   localStorage.setItem( 'list', JSON.stringify(list) );
 }
+
+// Remove items
+export function removeItems(index) {
+  const list = getItems();
+
+  list.splice(index, 1);
+  localStorage.setItem( 'list', JSON.stringify(list) );
+}

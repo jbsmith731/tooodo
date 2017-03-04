@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import {updateItems} from './util.js';
 import './complete.css';
 
 class Complete extends Component {
