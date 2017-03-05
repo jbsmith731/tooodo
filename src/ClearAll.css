@@ -1,0 +1,55 @@
+.clear-all {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.clear-all .count {
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(0,0,0,0.4);
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.clear button {
+  position: relative;
+  -webkit-appearance: none;
+  border: none;
+  background-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(0,0,0,0.4);
+  font-size: 0.625rem;
+  font-weight: 500;
+  transition: color 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000);
+  cursor: pointer;
+}
+
+.clear button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 6px;
+  right: 6px;
+  height: 1px;
+  background-color: rgba(0,0,0,0.4);
+  transform: scaleX(0);
+  transition: transform 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000), background-color 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000);
+  transform-origin: right;
+}
+
+.clear button:hover {
+  color: #C62828;
+  transform: scaleX(1);
+}
+
+.clear button:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+  background-color: #e53935;
+}

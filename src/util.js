@@ -11,6 +11,7 @@ export function getItems() {
   }
 }
 
+
 // http://stackoverflow.com/a/6860916
 function idGenerator() {
   const S4 = function() {
@@ -21,8 +22,8 @@ function idGenerator() {
 
 // Add new items
 export function addItems(val) {
-  const list = getItems(),
-        item = {},
+  let list = getItems();
+  const item = {},
         d    = new Date(),
         timeOptions = { hour: 'numeric', minute: 'numeric'},
         dateOptions = { month: 'short', day: 'numeric', year: 'numeric' };
@@ -39,8 +40,8 @@ export function addItems(val) {
 
 // Update items
 export function updateItems(index, toggle) {
-  const list = getItems(),
-        item = getItems()[index];
+  let list = getItems();
+  const item = list[index];
 
   item.complete = toggle;
   list.splice(index, 1, item)
@@ -49,8 +50,15 @@ export function updateItems(index, toggle) {
 
 // Remove items
 export function removeItems(index) {
-  const list = getItems();
-
+  let list = getItems();
   list.splice(index, 1);
   localStorage.setItem( 'list', JSON.stringify(list) );
+}
+
+export function removeComp(list) {
+  const newList = list.filter(function( obj ) {
+    return obj.complete === false;
+  });
+
+  localStorage.setItem( 'list', JSON.stringify(newList) );
 }

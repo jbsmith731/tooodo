@@ -1,12 +1,13 @@
 .todo-list { overflow: scroll; }
 
 .todo-list ul {
-  padding: 0;
+  padding: 0 1rem;
+  margin: 0;
 }
 
 .todo-list ul li {
   list-style: none;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -14,6 +15,7 @@
 
 .todo-list .task {
   margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .todo-list .task-item {
@@ -23,6 +25,7 @@
 
 .task-item span {
   position: relative;
+  display: inline-block;
   transition: color 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000);
 }
 

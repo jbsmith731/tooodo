@@ -24,6 +24,8 @@ class List extends Component {
 
     const list = this.props.list;
 
+    let listNum = list.length;
+
     function completedClass(comp) {
       return (comp === true ? 'completed task-item' : 'task-item');
     }
@@ -39,10 +41,10 @@ class List extends Component {
       </li>
     );
 
-    const listClass = (list.length > 0) ? 'todo-list' : 'todo-list empty';
+    const listClass = (listNum > 0) ? 'todo-list' : 'todo-list empty';
     const emptyList = <li>Your list is empty! Add more tooodos.</li>;
 
-    let listItems = (list.length > 0) ? fullList : emptyList;
+    let listItems = (listNum > 0) ? fullList : emptyList;
 
     return (
       <div className={listClass}>
