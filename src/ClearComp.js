@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './ClearAll.css';
+import './ClearComp.css';
 
-class ClearAll extends Component {
+class ClearComp extends Component {
 
   constructor(props) {
     super(props);
@@ -25,18 +25,19 @@ class ClearAll extends Component {
 
     let listNum = list.length;
 
+    const clearBtn = <div className="clear"><button onClick={this._handleClick}>Remove Completed</button></div>,
+          clear = (compNum.length > 0) ? clearBtn : '';
+
     return (
       <div className="clear-all">
         <div className="count">
           {compNum.length} of {listNum} items completed
         </div>
-        <div className="clear">
-          <button onClick={this._handleClick}>Remove Completed</button>
-        </div>
+        {clear}
       </div>
     )
   }
 
 }
 
-export default ClearAll;
+export default ClearComp;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Input from './Input';
 import List from './List';
-import ClearAll from './ClearAll';
+import ClearComp from './ClearComp';
 import {getItems, updateItems, removeItems, removeComp} from './util.js'
 import './App.css';
 
@@ -53,7 +53,7 @@ class App extends Component {
     return (
       <div className="app" onKeyUp={this._handleEnter}>
         <Input />
-        <ClearAll list={this.state.list} removeComp={this._removeComp} />
+        <ClearComp list={this.state.list} removeComp={this._removeComp} />
         <List list={this.state.list} updateChecked={this._toggleComplete} removeTodo={this._removeItem}/>
       </div>
     );
