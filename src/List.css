@@ -28,13 +28,13 @@
   margin-bottom: 0.25rem;
 }
 
-.task-item span {
+.task-item .task-text {
   position: relative;
   display: inline-block;
   transition: color 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000);
 }
 
-.task-item span::after {
+.task-item .task-text::after {
   content: "";
   position: absolute;
   top: 0;
@@ -50,12 +50,12 @@
   transition: transform 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000);
 }
 
-.task-item.completed span::after {
+.task-item.completed .task-text::after {
   transform: scaleX(1);
   transform-origin: left;
 }
 
-.task-item.completed span { color: rgba(0,0,0,0.4); }
+.task-item.completed .task-text { color: rgba(0,0,0,0.4); }
 
 .todo-list .created {
   width: 100%;

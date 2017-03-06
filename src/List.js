@@ -22,7 +22,8 @@ class List extends Component {
 
   render() {
 
-    const list = this.props.list;
+    const activeNav = this.props.active
+    const list = (activeNav === 'all') ? this.props.list : this.props.list.filter(function(obj) { return obj.tag === activeNav });
 
     let listNum = list.length;
 
@@ -36,7 +37,7 @@ class List extends Component {
       <li key={listItem.id} className={important(listItem.important)}>
         <Complete isComplete={listItem.complete} id={i} toggleComplete={this._toggleComplete} />
         <div className="task">
-          <div className={completedClass(listItem.complete)}><span>{listItem.task}</span></div>
+          <div className={completedClass(listItem.complete)}><span className="task-text">{listItem.task}</span></div>
           <div className="created"><span className="time">{listItem.time}</span> &ndash; <span className="date">{listItem.date}</span></div>
         </div>
         <Remove removeTodo={this._removeTodo} id={i}/>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Input from './Input';
 import List from './List';
 import ClearComp from './ClearComp';
+import Nav from './Nav';
 import {getItems, updateItems, removeItems, removeComp} from './util.js'
 import './App.css';
 
@@ -11,7 +12,8 @@ class App extends Component {
     super(props);
 
     this.state = {
-      list: getItems()
+      list : getItems(),
+      active : 'seagulls'
     }
 
     this._toggleComplete = this._toggleComplete.bind(this);
@@ -48,13 +50,18 @@ class App extends Component {
     })
   }
 
+  // _activeNav() {
+  //
+  // }
+
   render() {
 
     return (
       <div className="app" onKeyUp={this._handleEnter}>
         <Input />
         <ClearComp list={this.state.list} removeComp={this._removeComp} />
-        <List list={this.state.list} updateChecked={this._toggleComplete} removeTodo={this._removeItem}/>
+        <Nav list={this.state.list} active={this.state.active} />
+        <List list={this.state.list} updateChecked={this._toggleComplete} removeTodo={this._removeItem} active={this.state.active}/>
       </div>
     );
   }

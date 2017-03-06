@@ -75,7 +75,7 @@ export function addItems(val) {
   item.id = idGenerator();
   item.task = condCheck(val).task;
   item.important = condCheck(val).important;
-  item.subject = condCheck(val).subject;
+  item.tag = condCheck(val).subject;
   item.time = d.toLocaleTimeString('en-us', timeOptions);
   item.date = d.toLocaleDateString('en-US', dateOptions);
   item.complete = false;
