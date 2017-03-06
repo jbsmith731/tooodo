@@ -20,6 +20,47 @@ function idGenerator() {
   return (S4()+S4());
 }
 
+function condCheck(val) {
+
+  let obj;
+
+  if (val.indexOf('!') !== -1 && val.indexOf(' --') !== -1) {
+
+    const task = val.split('!'),
+          sub = task[1].split(' --');
+
+    obj = {
+      task : sub[0],
+      important : true,
+      subject : sub[1].toLowerCase()
+    }
+  } else if (val.indexOf(' --') !== -1) {
+    const task = val.split(' --')
+
+    obj = {
+      task : task[0],
+      important : false,
+      subject : task[1]
+    }
+  } else if (val.indexOf('!') !== -1) {
+    const task = val.split('!')
+
+    obj = {
+      task : task[1],
+      important : true,
+      subject : null
+    }
+  } else {
+    obj = {
+      task : val,
+      important : false,
+      subject : null
+    }
+  }
+
+  return obj;
+}
+
 // Add new items
 export function addItems(val) {
   let list = getItems();
@@ -28,8 +69,13 @@ export function addItems(val) {
         timeOptions = { hour: 'numeric', minute: 'numeric'},
         dateOptions = { month: 'short', day: 'numeric', year: 'numeric' };
 
+  console.log();
+  // itemConditions(val, ' -- ', 'subject');
+
   item.id = idGenerator();
-  item.task = val;
+  item.task = condCheck(val).task;
+  item.important = condCheck(val).important;
+  item.subject = condCheck(val).subject;
   item.time = d.toLocaleTimeString('en-us', timeOptions);
   item.date = d.toLocaleDateString('en-US', dateOptions);
   item.complete = false;

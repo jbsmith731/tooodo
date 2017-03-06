@@ -30,8 +30,10 @@ class List extends Component {
       return (comp === true ? 'completed task-item' : 'task-item');
     }
 
+    const important = (imp) => (imp === true) ? 'important' : '';
+
     const fullList = list.map((listItem, i) =>
-      <li key={listItem.id}>
+      <li key={listItem.id} className={important(listItem.important)}>
         <Complete isComplete={listItem.complete} id={i} toggleComplete={this._toggleComplete} />
         <div className="task">
           <div className={completedClass(listItem.complete)}><span>{listItem.task}</span></div>
