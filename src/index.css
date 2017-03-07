@@ -11,8 +11,9 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'avenir', system, -apple-system, BlinkMacSystemFont,"Helvetica Neue", "Lucida Grande";;
-
+  min-height: 100vh;
+  font-family: 'avenir', system, -apple-system, BlinkMacSystemFont,"Helvetica Neue", "Lucida Grande";
+  color: var(--black);
   background: linear-gradient(#3F51B5 , #333399);
 }
 
