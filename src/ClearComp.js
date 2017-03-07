@@ -11,17 +11,18 @@ class ClearComp extends Component {
 
   _handleClick(e) {
     e.preventDefault();
-    this.props.removeComp(this.props.list);
+    this.props.removeComp(this.props.list, this.props.active);
   }
 
 
   render() {
 
-    const list = this.props.list;
+    const rawList = this.props.list;
+    const list = rawList.filter(( obj ) => (this.props.active === 'all') ? obj : obj.tag === this.props.active )
 
-    let compNum = list.filter(function( obj ) {
-      return obj.complete === true;
-    });
+    let compNum = list.filter(( obj ) =>
+      obj.complete === true
+    )
 
     let listNum = list.length;
 

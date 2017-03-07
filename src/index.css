@@ -1,3 +1,13 @@
+:root {
+  --black: #111111;
+  --blue: #3F51B5;
+  --grey: rgba(0,0,0,0.4);
+  --l-grey: #f8f8f8;
+  --text-tiny: 0.625rem;
+  --text-small: 0.6875rem;
+  --easing: cubic-bezier(0.860, 0.000, 0.070, 1.000);
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -5,5 +15,7 @@ body {
 
   background: linear-gradient(to bottom, #3F51B5 , #333399);
 }
+
+a {transition: color 0.3s var(--easing);}
 
 * { box-sizing: border-box; }

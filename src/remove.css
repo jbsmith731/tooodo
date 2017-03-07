@@ -9,10 +9,11 @@
   background-color: transparent;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: rgba(0,0,0,0.4);
+  color: var(--grey);
   font-weight: 500;
-  transition: color 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000);
+  transition: color 0.3s var(--easing);
   cursor: pointer;
+  font-size: 0.6875rem;
 }
 
 .remove-container button::after {
@@ -22,9 +23,9 @@
   left: 6px;
   right: 6px;
   height: 1px;
-  background-color: rgba(0,0,0,0.4);
+  background-color: var(--grey);
   transform: scaleX(0);
-  transition: transform 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000), background-color 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000);
+  transition: transform 0.3s var(--easing), background-color 0.3s var(--easing);
   transform-origin: right;
 }
 

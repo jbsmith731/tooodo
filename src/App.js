@@ -13,13 +13,14 @@ class App extends Component {
 
     this.state = {
       list : getItems(),
-      active : 'seagulls'
+      active : 'all'
     }
 
     this._toggleComplete = this._toggleComplete.bind(this);
     this._handleEnter = this._handleEnter.bind(this);
     this._removeItem = this._removeItem.bind(this);
     this._removeComp = this._removeComp.bind(this);
+    this._activeNav = this._activeNav.bind(this);
   }
 
   _handleEnter(e) {
@@ -43,24 +44,26 @@ class App extends Component {
     })
   }
 
-  _removeComp(newList) {
-    removeComp(newList);
+  _removeComp(newList, active) {
+    removeComp(newList, active);
     this.setState({
       list: getItems()
     })
   }
 
-  // _activeNav() {
-  //
-  // }
+  _activeNav(activeItem) {
+    this.setState({
+      active: activeItem
+    })
+  }
 
   render() {
 
     return (
       <div className="app" onKeyUp={this._handleEnter}>
         <Input />
-        <ClearComp list={this.state.list} removeComp={this._removeComp} />
-        <Nav list={this.state.list} active={this.state.active} />
+        <Nav list={this.state.list} active={this.state.active} activateNav={this._activeNav} />
+        <ClearComp list={this.state.list} removeComp={this._removeComp} active={this.state.active} />
         <List list={this.state.list} updateChecked={this._toggleComplete} removeTodo={this._removeItem} active={this.state.active}/>
       </div>
     );

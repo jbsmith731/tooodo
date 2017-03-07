@@ -22,25 +22,24 @@ class List extends Component {
 
   render() {
 
-    const activeNav = this.props.active
-    const list = (activeNav === 'all') ? this.props.list : this.props.list.filter(function(obj) { return obj.tag === activeNav });
+    const activeNav = this.props.active,
+          list = this.props.list,
+          listNum = list.length;
 
-    let listNum = list.length;
-
-    function completedClass(comp) {
-      return (comp === true ? 'completed task-item' : 'task-item');
-    }
+    let completedClass = (comp) => (comp === true) ? 'completed task-item' : 'task-item';
 
     const important = (imp) => (imp === true) ? 'important' : '';
 
-    const fullList = list.map((listItem, i) =>
+    const fullList = list.filter((listItem) =>
+      (activeNav === 'all') ? listItem : listItem.tag === activeNav
+    ).map((listItem, i) =>
       <li key={listItem.id} className={important(listItem.important)}>
-        <Complete isComplete={listItem.complete} id={i} toggleComplete={this._toggleComplete} />
+        <Complete isComplete={listItem.complete} id={listItem.id} toggleComplete={this._toggleComplete} />
         <div className="task">
           <div className={completedClass(listItem.complete)}><span className="task-text">{listItem.task}</span></div>
           <div className="created"><span className="time">{listItem.time}</span> &ndash; <span className="date">{listItem.date}</span></div>
         </div>
-        <Remove removeTodo={this._removeTodo} id={i}/>
+        <Remove removeTodo={this._removeTodo} id={listItem.id}/>
       </li>
     );
 

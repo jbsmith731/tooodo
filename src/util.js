@@ -1,4 +1,3 @@
-
 // Get list of items
 export function getItems() {
 
@@ -24,25 +23,25 @@ function condCheck(val) {
 
   let obj;
 
-  if (val.indexOf('!') !== -1 && val.indexOf(' --') !== -1) {
+  if (val.indexOf('!') === 0 && val.indexOf(' #') !== -1) {
 
     const task = val.split('!'),
-          sub = task[1].split(' --');
+          sub = task[1].split(' #');
 
     obj = {
       task : sub[0],
       important : true,
       subject : sub[1].toLowerCase()
     }
-  } else if (val.indexOf(' --') !== -1) {
-    const task = val.split(' --')
+  } else if (val.indexOf(' #') !== -1) {
+    const task = val.split(' #')
 
     obj = {
       task : task[0],
       important : false,
       subject : task[1]
     }
-  } else if (val.indexOf('!') !== -1) {
+  } else if (val.indexOf('!') === 0) {
     const task = val.split('!')
 
     obj = {
@@ -69,9 +68,6 @@ export function addItems(val) {
         timeOptions = { hour: 'numeric', minute: 'numeric'},
         dateOptions = { month: 'short', day: 'numeric', year: 'numeric' };
 
-  console.log();
-  // itemConditions(val, ' -- ', 'subject');
-
   item.id = idGenerator();
   item.task = condCheck(val).task;
   item.important = condCheck(val).important;
@@ -85,9 +81,12 @@ export function addItems(val) {
 
 
 // Update items
-export function updateItems(index, toggle) {
+export function updateItems(id, toggle) {
   let list = getItems();
-  const item = list[index];
+  const array = list.filter((listItem) => listItem.id === id);
+  let item;
+  array.map((list) => item = list);
+  const index = list.findIndex((item) => item.id === id);
 
   item.complete = toggle;
   list.splice(index, 1, item)
@@ -95,16 +94,23 @@ export function updateItems(index, toggle) {
 }
 
 // Remove items
-export function removeItems(index) {
+export function removeItems(id) {
   let list = getItems();
+  const array = list.filter((listItem) => listItem.id === id);
+  let item;
+  array.map((list) => item = list);
+  const index = list.findIndex((item) => item.id === id);
   list.splice(index, 1);
   localStorage.setItem( 'list', JSON.stringify(list) );
 }
 
-export function removeComp(list) {
+export function removeComp(list, act) {
   const newList = list.filter(function( obj ) {
+    // const active = (act === 'all') ? obj : act === obj.tag;
+    // console.log(active);
     return obj.complete === false;
   });
+
 
   localStorage.setItem( 'list', JSON.stringify(newList) );
 }

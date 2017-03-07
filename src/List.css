@@ -31,7 +31,7 @@
 .task-item .task-text {
   position: relative;
   display: inline-block;
-  transition: color 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000);
+  transition: color 0.3s var(--easing);
 }
 
 .task-item .task-text::after {
@@ -41,13 +41,13 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(0,0,0,0.4);
+  background-color: var(--grey);
   height: 1px;
   width: 100%;
   margin: auto;
   transform: scaleX(0);
   transform-origin: right;
-  transition: transform 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000);
+  transition: transform 0.3s var(--easing);
 }
 
 .task-item.completed .task-text::after {
@@ -55,13 +55,13 @@
   transform-origin: left;
 }
 
-.task-item.completed .task-text { color: rgba(0,0,0,0.4); }
+.task-item.completed .task-text { color: var(--grey); }
 
 .todo-list .created {
   width: 100%;
   font-size: 0.625rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: rgba(0,0,0,0.4);
+  color: var(--grey);
   font-weight: 500;
 }

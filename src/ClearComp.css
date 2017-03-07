@@ -3,7 +3,8 @@
   flex-direction: row;
   justify-content: space-between;
   border-bottom: 1px solid rgba(0,0,0,0.1);
-  padding: 0.5rem 1rem;
+  padding: 0 1rem;
+  line-height: 2.5rem;
   margin-bottom: 1rem;
   background-color: #f9f9f9;
 }
@@ -12,9 +13,8 @@
   font-size: 0.625rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: rgba(0,0,0,0.4);
+  color: var(--grey);
   font-weight: 500;
-  line-height: 22px;
 }
 
 .clear button {
@@ -24,10 +24,10 @@
   background-color: transparent;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: rgba(0,0,0,0.4);
+  color: var(--grey);
   font-size: 0.625rem;
   font-weight: 500;
-  transition: color 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000);
+  transition: color 0.3s var(--easing);
   cursor: pointer;
 }
 
@@ -38,9 +38,9 @@
   left: 6px;
   right: 6px;
   height: 1px;
-  background-color: rgba(0,0,0,0.4);
+  background-color: var(--grey);
   transform: scaleX(0);
-  transition: transform 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000), background-color 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000);
+  transition: transform 0.3s var(--easing), background-color 0.3s var(--easing);
   transform-origin: right;
 }
 
