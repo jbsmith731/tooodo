@@ -104,13 +104,15 @@ export function removeItems(id) {
   localStorage.setItem( 'list', JSON.stringify(list) );
 }
 
+// Remove completed items
 export function removeComp(list, act) {
   const newList = list.filter(function( obj ) {
-    // const active = (act === 'all') ? obj : act === obj.tag;
-    // console.log(active);
-    return obj.complete === false;
+    if (act === 'all') {
+      return obj.complete === false;
+    } else {
+      return obj.tag != act || (obj.tag === act && obj.complete === false);
+    }
   });
-
 
   localStorage.setItem( 'list', JSON.stringify(newList) );
 }
