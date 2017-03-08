@@ -11,28 +11,20 @@ class ClearComp extends Component {
 
   _handleClick(e) {
     e.preventDefault();
-    this.props.removeComp(this.props.list, this.props.active);
+    this.props.removeComp(this.props.active);
   }
 
 
   render() {
-
-    const rawList = this.props.list;
-    const list = rawList.filter(( obj ) => (this.props.active === 'all') ? obj : obj.tag === this.props.active )
-
-    let compNum = list.filter(( obj ) =>
-      obj.complete === true
-    )
-
-    let listNum = list.length;
-
+    // const list = this.props.list;
+    const count = this.props.count;
     const clearBtn = <div className="clear"><button onClick={this._handleClick}>Remove Completed</button></div>,
-          clear = (compNum.length > 0) ? clearBtn : '';
+          clear = ( count.complete > 0) ? clearBtn : '';
 
     return (
       <div className="clear-all">
         <div className="count">
-          {compNum.length} of {listNum} items completed
+          {count.complete} of {count.total} items completed
         </div>
         {clear}
       </div>

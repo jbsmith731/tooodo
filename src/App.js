@@ -3,7 +3,7 @@ import Input from './Input';
 import List from './List';
 import ClearComp from './ClearComp';
 import Nav from './Nav';
-import {getItems, updateItems, removeItems, removeComp} from './util.js'
+import {getItems, updateItems, removeItems, removeComp, complete} from './util.js'
 import './App.css';
 
 class App extends Component {
@@ -44,8 +44,8 @@ class App extends Component {
     })
   }
 
-  _removeComp(newList, active) {
-    removeComp(newList, active);
+  _removeComp(active) {
+    removeComp(active);
     this.setState({
       list: getItems()
     })
@@ -57,14 +57,16 @@ class App extends Component {
     })
   }
 
+  activeList = () => this.state.list.filter((obj) => (this.state.active === 'all') ? obj : obj.tag === this.state.active );
+
   render() {
 
     return (
       <div className="app" onKeyUp={this._handleEnter}>
         <Input />
         <Nav list={this.state.list} active={this.state.active} activateNav={this._activeNav} />
-        <ClearComp list={this.state.list} removeComp={this._removeComp} active={this.state.active} />
-        <List list={this.state.list} updateChecked={this._toggleComplete} removeTodo={this._removeItem} active={this.state.active}/>
+        <ClearComp count={complete(this.activeList())} removeComp={this._removeComp} active={this.state.active}/>
+        <List list={this.activeList()} updateChecked={this._toggleComplete} removeTodo={this._removeItem} />
       </div>
     );
   }

@@ -32,7 +32,7 @@ class Input extends Component {
   render() {
     return (
       <div className="input-container">
-        <input id="createTask" type="text" placeholder="Add new task..." value={this.state.theValue} onChange={this._handleChange} onKeyDown={this._handleEnter} />
+        <input id="createTask" type="text" placeholder="Add a new tooodo..." value={this.state.theValue} onChange={this._handleChange} onKeyDown={this._handleEnter} />
       </div>
     );
   }

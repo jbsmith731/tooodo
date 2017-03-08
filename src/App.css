@@ -1,7 +1,7 @@
 .app {
   width: 100%;
   max-width: 40rem;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #ffffff;
   margin: auto;
   font-size: 1rem;

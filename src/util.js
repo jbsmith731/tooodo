@@ -105,14 +105,27 @@ export function removeItems(id) {
 }
 
 // Remove completed items
-export function removeComp(list, act) {
-  const newList = list.filter(function( obj ) {
+export function removeComp(act) {
+  const newList = getItems().filter(function( obj ) {
     if (act === 'all') {
       return obj.complete === false;
     } else {
-      return obj.tag != act || (obj.tag === act && obj.complete === false);
+      return obj.tag !== act || (obj.tag === act && obj.complete === false);
     }
   });
 
   localStorage.setItem( 'list', JSON.stringify(newList) );
+}
+
+// Count completed items
+export function complete(list) {
+  const compNum = list.filter(( obj ) => obj.complete === true ).length,
+        listNum = list.length;
+
+  const object = {
+    complete : compNum,
+    total : listNum
+  }
+
+  return object;
 }

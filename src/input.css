@@ -11,5 +11,6 @@
   border: none;
   padding: 1rem;
   font-size: 1.25rem;
+  font-weight: 200;
   border-bottom: 1px solid rgba(0,0,0,0.1);
 }

@@ -1,21 +1,40 @@
 nav {
   line-height: 3rem;
   border-bottom: 1px solid rgba(0,0,0,0.1);
+  position: relative;
+  height:3rem;
 }
 
 nav ul {
   margin: 0;
   padding: 0;
-  display: flex;
+  height: inherit;
+  /*display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   position: relative;
+  min-width: min-content;*/
+  overflow-x: scroll;
+
+  white-space:nowrap;
+}
+
+nav::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right:0;
+  bottom: 0;
+  background: linear-gradient(to right,rgba(255,255,255,0), rgba(255,255,255,1));
+  width: 4rem;
 }
 
 nav li {
-  list-style: none;
+  height: inherit;
   padding: 0 1rem;
   position: relative;
+  display: inline-block;
+  list-style: none;
 }
 
 nav a {

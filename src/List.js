@@ -22,17 +22,13 @@ class List extends Component {
 
   render() {
 
-    const activeNav = this.props.active,
-          list = this.props.list,
+    const list = this.props.list,
           listNum = list.length;
 
-    let completedClass = (comp) => (comp === true) ? 'completed task-item' : 'task-item';
+    const completedClass = (comp) => (comp === true) ? 'completed task-item' : 'task-item',
+          important = (imp) => (imp === true) ? 'important' : '';
 
-    const important = (imp) => (imp === true) ? 'important' : '';
-
-    const fullList = list.filter((listItem) =>
-      (activeNav === 'all') ? listItem : listItem.tag === activeNav
-    ).map((listItem, i) =>
+    const fullList = list.map((listItem, i) =>
       <li key={listItem.id} className={important(listItem.important)}>
         <Complete isComplete={listItem.complete} id={listItem.id} toggleComplete={this._toggleComplete} />
         <div className="task">
@@ -45,8 +41,7 @@ class List extends Component {
 
     const listClass = (listNum > 0) ? 'todo-list' : 'todo-list empty';
     const emptyList = <li>Your list is empty! Add more tooodos.</li>;
-
-    let listItems = (listNum > 0) ? fullList : emptyList;
+    const listItems = (listNum > 0) ? fullList : emptyList;
 
     return (
       <div className={listClass}>
