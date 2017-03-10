@@ -34,14 +34,14 @@ class App extends Component {
     updateItems(id, checked)
     this.setState({
       list: getItems()
-    })
+    });
   }
 
   _removeItem(id) {
     removeItems(id);
     this.setState({
       list: getItems()
-    })
+    });
   }
 
   _removeComp(active) {
