@@ -39,7 +39,7 @@ function condCheck(val) {
     obj = {
       task : task[0],
       important : false,
-      subject : task[1]
+      subject : task[1].toLowerCase()
     }
   } else if (val.indexOf('!') === 0) {
     const task = val.split('!')

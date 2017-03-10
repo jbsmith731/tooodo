@@ -1,4 +1,7 @@
-.todo-list { overflow: scroll; }
+.todo-list {
+  overflow: scroll;
+  min-height: 100vh;
+}
 
 .todo-list ul {
   padding: 0 1rem;
@@ -64,4 +67,35 @@
   letter-spacing: 0.08em;
   color: var(--grey);
   font-weight: 500;
+}
+
+
+
+.task-enter .complete-container,
+.task-enter .task,
+.task-enter .remove-container {
+  opacity: 0.01;
+  transform: translateY(3rem);
+  overflow: visible;
+}
+
+.task-enter.task-enter-active .complete-container,
+.task-enter.task-enter-active .task,
+.task-enter.task-enter-active .remove-container {
+  opacity: 1;
+  transform: translateY(0);
+  transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1.000), opacity 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+
+
+.task-enter.task-enter-active .task { transition-delay: 0.035; }
+.task-enter.task-enter-active .remove-container { transition-delay: 0.07s; }
+
+.task-leave {
+  opacity: 1;
+}
+
+.task-leave.task-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
 }

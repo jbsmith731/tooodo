@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Complete from './complete';
 import Remove from './remove';
 import './List.css';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class List extends Component {
 
@@ -46,7 +47,12 @@ class List extends Component {
     return (
       <div className={listClass}>
         <ul>
-          {listItems}
+          <ReactCSSTransitionGroup
+            transitionName="task"
+            transitionEnterTimeout={600}
+            transitionLeaveTimeout={300}>
+            {listItems}
+            </ReactCSSTransitionGroup>
         </ul>
       </div>
     )

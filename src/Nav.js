@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import './nav.css';
 
 class Nav extends Component {
@@ -36,7 +37,12 @@ class Nav extends Component {
       <nav>
         <ul>
           <li className={activeClass('all')}><a href="#" onClick={this._handleClick}>all</a></li>
-          {navItems}
+          <ReactCSSTransitionGroup
+            transitionName="nav"
+            transitionEnterTimeout={600}
+            transitionLeaveTimeout={600}>
+            {navItems}
+          </ReactCSSTransitionGroup>
         </ul>
       </nav>
     );
