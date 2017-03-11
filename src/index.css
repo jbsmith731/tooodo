@@ -6,6 +6,7 @@
   --text-tiny: 0.625rem;
   --text-small: 0.6875rem;
   --easing: cubic-bezier(0.860, 0.000, 0.070, 1.000);
+  --easing2: cubic-bezier(0.770, 0.000, 0.175, 1.000);
 }
 
 body {
@@ -17,6 +18,29 @@ body {
   background: linear-gradient(#3F51B5 , #333399);
 }
 
-a {transition: color 0.3s var(--easing);}
+a {
+  position: relative;
+  text-decoration: none;
+  transition: color 0.3s var(--easing);
+}
+
+a:not(nav)::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transition: transform 0.3s var(--easing), background-color 0.3s var(--easing);
+  transform-origin: right;
+}
+
+a:not(.nav-link):hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+  background-color: currentColor;
+}
 
 * { box-sizing: border-box; }

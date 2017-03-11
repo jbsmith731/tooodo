@@ -3,12 +3,14 @@ nav {
   border-bottom: 1px solid rgba(0,0,0,0.1);
   position: relative;
   height:3rem;
+  overflow-y: visible;
 }
 
 nav ul {
   margin: 0;
   padding: 0;
   height: inherit;
+  overflow-y: inherit;
   /*display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -72,14 +74,13 @@ nav li.active::after {
 
 .nav-enter {
   opacity: 0.01;
-  transform: translateX(2rem);
+  transform: translateY(1rem);
 }
 
 .nav-enter.nav-enter-active {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateY(0);
   transition: transform 0.3s cubic-bezier(0.770, 0.000, 0.175, 1.000), opacity 0.3s cubic-bezier(0.770, 0.000, 0.175, 1.000);
-  transition-delay: 0.3s;
 }
 
 .nav-leave {
@@ -89,7 +90,7 @@ nav li.active::after {
 
 .nav-leave.nav-leave-active {
   opacity: 0.01;
-  transform: translateY(2rem);
+  transform: translateY(1rem);
   transition: transform 0.3s cubic-bezier(0.770, 0.000, 0.175, 1.000), opacity 0.3s cubic-bezier(0.770, 0.000, 0.175, 1.000);
   transition-delay: 0.3s;
 }

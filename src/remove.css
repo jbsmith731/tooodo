@@ -39,3 +39,19 @@
   transform-origin: left;
   background-color: #e53935;
 }
+
+.remove-container {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(1rem);
+  pointer-events: none;
+  transition: all 0.3s var(--easing2);
+}
+
+.todo-list li:hover .remove-container {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+
+}

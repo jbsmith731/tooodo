@@ -12,8 +12,8 @@ class Nav extends Component {
 
   _handleClick(e) {
     e.preventDefault();
-    const item = e.target;
-    this.props.activateNav(item.innerHTML);
+    const item = e.target.textContent;
+    this.props.activateNav(item);
   }
 
   render() {
@@ -27,16 +27,16 @@ class Nav extends Component {
     const list = rawList.filter((tag) => tag !== undefined && tag !== null);
 
     const tags = [...new Set(list)],
-          activeClass = (t) => (this.props.active === t) ? 'active' : '';
+          activeClass = (t) => (this.props.active === t) ? 'active nav-link' : 'nav-link';
 
     const navItems = tags.map((tag, i) =>
-      <li key={i} className={activeClass(tag)}><a href="#" onClick={this._handleClick}>{tag}</a></li>
+      <li key={i} className={activeClass(tag)}><a className="nav-link" href="#" onClick={this._handleClick}>{tag}</a></li>
     );
 
     return (
       <nav>
         <ul>
-          <li className={activeClass('all')}><a href="#" onClick={this._handleClick}>all</a></li>
+          <li><a href="#" className={activeClass('all')} onClick={this._handleClick}>all</a></li>
           <ReactCSSTransitionGroup
             transitionName="nav"
             transitionEnterTimeout={600}

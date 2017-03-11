@@ -1,6 +1,5 @@
 // Get list of items
 export function getItems() {
-
   if (localStorage.getItem("list") === null) {
     const list = [];
     localStorage.setItem('list', JSON.stringify(list));
@@ -10,6 +9,7 @@ export function getItems() {
   }
 }
 
+export const welcome = (localStorage.getItem("list") === null) ? true : false;
 
 // http://stackoverflow.com/a/6860916
 function idGenerator() {

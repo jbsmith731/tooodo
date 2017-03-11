@@ -66,7 +66,7 @@ class App extends Component {
         <Input />
         <Nav list={this.state.list} active={this.state.active} activateNav={this._activeNav} />
         <ClearComp count={complete(this.activeList())} removeComp={this._removeComp} active={this.state.active}/>
-        <List list={this.activeList()} updateChecked={this._toggleComplete} removeTodo={this._removeItem} />
+        <List list={this.activeList()} updateChecked={this._toggleComplete} removeTodo={this._removeItem} activateNav={this._activeNav}/>
       </div>
     );
   }

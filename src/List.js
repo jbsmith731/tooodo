@@ -11,6 +11,7 @@ class List extends Component {
 
     this._toggleComplete = this._toggleComplete.bind(this);
     this._removeTodo = this._removeTodo.bind(this);
+    this._handleClick = this._handleClick.bind(this);
   }
 
   _toggleComplete(id, checked) {
@@ -21,6 +22,12 @@ class List extends Component {
     this.props.removeTodo(id);
   }
 
+  _handleClick(e) {
+    e.preventDefault();
+    const item = e.target.textContent.split('#')[1];
+    this.props.activateNav(item);
+  }
+
   render() {
 
     const list = this.props.list,
@@ -29,14 +36,16 @@ class List extends Component {
     const completedClass = (comp) => (comp === true) ? 'completed task-item' : 'task-item',
           important = (imp) => (imp === true) ? 'important' : '';
 
-    const fullList = list.map((listItem, i) =>
-      <li key={listItem.id} className={important(listItem.important)}>
-        <Complete isComplete={listItem.complete} id={listItem.id} toggleComplete={this._toggleComplete} />
+    const tag = (tag) => (tag) ? <a href="#" onClick={this._handleClick}>#{tag}</a> : '';
+
+    const fullList = list.map((task, i) =>
+      <li key={task.id} className={important(task.important)}>
+        <Complete isComplete={task.complete} id={task.id} toggleComplete={this._toggleComplete} />
         <div className="task">
-          <div className={completedClass(listItem.complete)}><span className="task-text">{listItem.task}</span></div>
-          <div className="created"><span className="time">{listItem.time}</span> &ndash; <span className="date">{listItem.date}</span></div>
+          <div className={completedClass(task.complete)}><span className="task-text">{task.task}</span> {tag(task.tag)}</div>
+          <div className="created"><span className="time">{task.time}</span> &ndash; <span className="date">{task.date}</span></div>
         </div>
-        <Remove removeTodo={this._removeTodo} id={listItem.id}/>
+        <Remove removeTodo={this._removeTodo} id={task.id}/>
       </li>
     );
 
@@ -49,8 +58,8 @@ class List extends Component {
         <ul>
           <ReactCSSTransitionGroup
             transitionName="task"
-            transitionEnterTimeout={600}
-            transitionLeaveTimeout={300}>
+            transitionEnterTimeout={300}
+            transitionLeave={false}>
             {listItems}
             </ReactCSSTransitionGroup>
         </ul>
