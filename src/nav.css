@@ -6,7 +6,7 @@ nav {
   overflow-y: visible;
 }
 
-nav span { line-height: inherit; display: inline-block; height: 3rem;}
+nav span { height: 3rem; }
 
 nav ul {
   margin: 0;

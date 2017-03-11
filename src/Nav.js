@@ -36,11 +36,12 @@ class Nav extends Component {
     return (
       <nav>
         <ul>
-          <li className={activeClass('all')}><a href="#" className={activeClass('all')} onClick={this._handleClick}>all</a></li>
+
           <ReactCSSTransitionGroup
             transitionName="nav"
             transitionEnterTimeout={600}
             transitionLeaveTimeout={600}>
+            <li className={activeClass('all')}><a href="#" className={activeClass('all')} onClick={this._handleClick}>all</a></li>
             {navItems}
           </ReactCSSTransitionGroup>
         </ul>
