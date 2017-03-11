@@ -20,6 +20,9 @@ class List extends Component {
 
   _removeTodo(id) {
     this.props.removeTodo(id);
+    if (this.props.list.length - 1 < 1) {
+      this.props.activateNav('all');
+    }
   }
 
   _handleClick(e) {
@@ -45,7 +48,7 @@ class List extends Component {
           <div className={completedClass(task.complete)}><span className="task-text">{task.task}</span> {tag(task.tag)}</div>
           <div className="created"><span className="time">{task.time}</span> &ndash; <span className="date">{task.date}</span></div>
         </div>
-        <Remove removeTodo={this._removeTodo} id={task.id}/>
+        <Remove removeTodo={this._removeTodo} id={task.id} />
       </li>
     );
 

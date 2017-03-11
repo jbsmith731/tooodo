@@ -65,7 +65,7 @@ class App extends Component {
       <div className="app" onKeyUp={this._handleEnter}>
         <Input />
         <Nav list={this.state.list} active={this.state.active} activateNav={this._activeNav} />
-        <ClearComp count={complete(this.activeList())} removeComp={this._removeComp} active={this.state.active}/>
+        <ClearComp count={complete(this.activeList())} removeComp={this._removeComp} active={this.state.active} activateNav={this._activeNav} />
         <List list={this.activeList()} updateChecked={this._toggleComplete} removeTodo={this._removeItem} activateNav={this._activeNav}/>
       </div>
     );
