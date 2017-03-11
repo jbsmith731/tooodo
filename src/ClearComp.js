@@ -12,7 +12,7 @@ class ClearComp extends Component {
   _handleClick(e) {
     e.preventDefault();
     this.props.removeComp(this.props.active);
-    if (this.props.count.total - 1 < 1) {
+    if (this.props.count.total - this.props.count.complete < 1) {
       this.props.activateNav('all');
     }
   }
