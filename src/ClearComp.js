@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import './ClearComp.css';
 
 class ClearComp extends Component {
@@ -29,7 +30,12 @@ class ClearComp extends Component {
         <div className="count">
           {count.complete} of {count.total} items completed
         </div>
-        {clear}
+        <ReactCSSTransitionGroup
+          transitionName="clear"
+          transitionEnterTimeout={300}
+          transitionLeaveTimeout={300}>
+          {clear}
+        </ReactCSSTransitionGroup>
       </div>
     )
   }

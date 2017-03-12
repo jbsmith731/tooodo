@@ -24,6 +24,8 @@ a {
   transition: color 0.3s var(--easing);
 }
 
+a:visited { color: var(--blue); }
+
 a:not(nav)::after {
   content: "";
   position: absolute;

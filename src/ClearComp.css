@@ -18,7 +18,11 @@
   font-weight: 500;
 }
 
+.clear,
+.clear-all span { height: inherit }
+
 .clear button {
+  display: block;
   position: relative;
   -webkit-appearance: none;
   border: none;
@@ -30,12 +34,15 @@
   font-weight: 500;
   transition: color 0.3s var(--easing);
   cursor: pointer;
+  /*line-height: inherit;*/
+  height: 100%;
+  /*padding: 0;*/
 }
 
 .clear button::after {
   content: "";
   position: absolute;
-  bottom: 0;
+  bottom: 11px;
   left: 6px;
   right: 6px;
   height: 1px;
@@ -54,4 +61,27 @@
   transform: scaleX(1);
   transform-origin: left;
   background-color: #e53935;
+}
+
+
+.clear-enter {
+  opacity: 0.01;
+  transform: translateY(1rem);
+}
+
+.clear-enter.clear-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: transform 0.3s cubic-bezier(0.770, 0.000, 0.175, 1.000), opacity 0.3s cubic-bezier(0.770, 0.000, 0.175, 1.000);
+}
+
+.clear-leave {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.clear-leave.clear-leave-active {
+  opacity: 0.01;
+  transform: translateY(1rem);
+  transition: transform 0.3s cubic-bezier(0.770, 0.000, 0.175, 1.000), opacity 0.3s cubic-bezier(0.770, 0.000, 0.175, 1.000);
 }
