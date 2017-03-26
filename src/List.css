@@ -1,7 +1,4 @@
-.todo-list {
-  overflow: scroll;
-  min-height: 100vh;
-}
+.todo-list { overflow: scroll; }
 
 .todo-list ul {
   padding: 0 1rem;
@@ -58,6 +55,7 @@
   transform-origin: left;
 }
 
+.task-item.completed a,
 .task-item.completed .task-text { color: var(--grey); }
 
 .todo-list .created {

@@ -1,8 +1,8 @@
 :root {
-  --black: #111111;
-  --blue: #3F51B5;
-  --grey: rgba(0,0,0,0.4);
-  --l-grey: #f8f8f8;
+  --black: #263238;
+  --blue: #304FFE;
+  --grey: #97A1A7;
+  --l-grey: #F8F9F9;
   --text-tiny: 0.625rem;
   --text-small: 0.6875rem;
   --easing: cubic-bezier(0.860, 0.000, 0.070, 1.000);
@@ -15,13 +15,14 @@ body {
   min-height: 100vh;
   font-family: 'avenir', system, -apple-system, BlinkMacSystemFont,"Helvetica Neue", "Lucida Grande";
   color: var(--black);
-  background: linear-gradient(#3F51B5 , #333399);
+  background-color: #EBEDEE;
 }
 
 a {
   position: relative;
   text-decoration: none;
   transition: color 0.3s var(--easing);
+  color: var(--blue);
 }
 
 a:visited { color: var(--blue); }
